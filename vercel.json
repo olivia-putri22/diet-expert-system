@@ -1,14 +1,16 @@
 {
     "version": 2,
-    "framework": "laravel",
-    "commands": {
-        "build": "php artisan config:cache && php artisan route:cache"
-    },
-    "routes": [
+    "builds": [
         {
-            "src": "/build/(.*)",
-            "dest": "/public/build/$1"
+            "src": "public/index.php",
+            "use": "@vercel/php"
         },
+        {
+            "src": "public/**",
+            "use": "@vercel/static"
+        }
+    ],
+    "routes": [
         {
             "src": "/(css|js|images|assets)/(.*)",
             "dest": "/public/$1/$2"
