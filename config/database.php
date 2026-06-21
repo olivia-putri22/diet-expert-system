@@ -58,10 +58,10 @@ return [
             'prefix_indexes' => true,
             'strict' => true,
             'engine' => null,
-            'options' => extension_loaded('pdo_mysql') ? array_filter([
-                // Mengaktifkan enkripsi SSL tanpa memverifikasi file sertifikat CA lokal
+            'options' => [
+                PDO::MYSQL_ATTR_SSL_STR_TO_FILE => true,
                 PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false,
-            ]) : [],
+            ],
         ],
 
         'pgsql' => [
