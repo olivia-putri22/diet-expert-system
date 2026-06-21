@@ -59,7 +59,8 @@ return [
             'strict' => true,
             'engine' => null,
             'options' => [
-                PDO::MYSQL_ATTR_SSL_STR_TO_FILE => true,
+                // Mengaktifkan SSL dengan driver bawaan yang kompatibel di semua versi PHP
+                PDO::MYSQL_ATTR_SSL_CA => true,
                 PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false,
             ],
         ],
