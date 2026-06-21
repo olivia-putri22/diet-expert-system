@@ -1,0 +1,21 @@
+{
+    "version": 2,
+    "framework": "laravel",
+    "commands": {
+        "build": "php artisan config:cache && php artisan route:cache"
+    },
+    "routes": [
+        {
+            "src": "/build/(.*)",
+            "dest": "/public/build/$1"
+        },
+        {
+            "src": "/(css|js|images|assets)/(.*)",
+            "dest": "/public/$1/$2"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "/public/index.php"
+        }
+    ]
+}
